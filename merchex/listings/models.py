@@ -28,3 +28,4 @@ class listing(models.Model):
     sold = models.IntegerField()
     year = models.DateTimeField()
     type = models.CharField(choices=Type.choices,max_length=15)
+    #jeremy
