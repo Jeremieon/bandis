@@ -16,6 +16,9 @@ class Band(models.Model):
     )
     active = models.fields.BooleanField(default=True)
     official_homepage = models.URLField()
+
+    def __str__(self):
+        return self.name
 class listing(models.Model):
     class Type(models.TextChoices):
         Records ='Rec'
