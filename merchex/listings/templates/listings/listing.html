@@ -1,7 +1,9 @@
 {% extends 'listings/base.html' %}
-    <ul>
-      {% for l in listn %}
-      <li>{{l.title}}</li>
-      {% endfor %}
-    </ul>
-
+{% block content %}
+<ul>
+  {% for l in listn %}
+  <li><a href="{% url 'listing_detail' l.id %}">
+    {{ l.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

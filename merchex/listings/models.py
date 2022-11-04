@@ -21,14 +21,19 @@ class Band(models.Model):
         return self.name
 class listing(models.Model):
     class Type(models.TextChoices):
-        Records ='Rec'
-        Clothing ='Cloth'
-        Posters = 'poster'
-        Miscellaneous='other'
-   
+        Records ='Records'
+        Clothing ='Clothing'
+        Posters = 'Posters'
+        Miscellaneous='Miscellaneous'
+    band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
-    sold = models.IntegerField()
-    year = models.DateTimeField()
+    sold = models.fields.BooleanField(default=True)
+    year = models.IntegerField(
+        validators=[MinValueValidator(1900),MaxValueValidator(2021)]
+    )
     type = models.CharField(choices=Type.choices,max_length=15)
     #jeremy
+
+    def __str__(self):
+        return self.title

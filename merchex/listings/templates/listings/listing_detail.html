@@ -1,0 +1,11 @@
+{% extends 'listings/base.html' %} {% block content %}
+<ul>
+   <li>Title: {{ lista.title }}</li>
+   <li>Sold: {{ lista.active|yesno }}</li>
+   <li>year: {{ lista.year }}</li>
+   <li>type: {{ lista.type }}</li>
+  
+</ul>
+<p>{{ lista.description }}</p>
+<a href="{% url 'listing_view' %}">Back to all Listings</a>
+{% endblock %}

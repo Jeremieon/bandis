@@ -1,10 +1,14 @@
 {% load static %}
 <html>
   <head>
-    <title>Merchex</title>
+    <title>Simple Website</title>
     <link rel="stylesheet" href="{% static 'listings/styles.css' %}" />
   </head>
   <body>
+    <nav>
+      <a href="{% url 'band_list' %}">Bands</a>
+      <a href="{% url 'listing_view' %}">Listings</a>
+    </nav>
     <h1>Hello Django!</h1>
     {% block content %} {% endblock %}
     <ul></ul>
