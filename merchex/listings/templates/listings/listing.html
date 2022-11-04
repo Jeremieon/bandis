@@ -1,9 +1,12 @@
-{% extends 'listings/base.html' %}
-{% block content %}
+{% extends 'listings/base.html' %} {% block content %}
+<a href="{% url 'list-create' %}">Create new Listing</a>
 <ul>
   {% for l in listn %}
-  <li><a href="{% url 'listing_detail' l.id %}">
-    {{ l.title }}</a></li>
+  <li>
+    <a href="{% url 'listing_detail' l.id %}">{{ l.title }}</a>
+    <a href="{% url 'listing-update' l.id %}">[edit]</a>
+  </li>
+
   {% endfor %}
 </ul>
 {% endblock %}
